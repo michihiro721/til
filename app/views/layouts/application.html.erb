@@ -10,7 +10,13 @@
   </head>
 
   <body>
+    <!-- ヘッダーの表示 -->
     <%= render 'shared/header' %>
+
+    <!-- メインコンテンツの表示 -->
     <%= yield %>
+
+    <!-- フッターの表示 -->
+    <%= render 'shared/footer' %>
   </body>
 </html>
