@@ -1,1 +1,2 @@
-@import "application.bootstrap";
+@import "application.bootstrap"; // 既存の Bootstrap のスタイル
+@import "top"; // 新しく追加した top.scss をインポート
