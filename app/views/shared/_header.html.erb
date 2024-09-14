@@ -22,17 +22,26 @@
           <%= link_to 'ブックマーク一覧', '#', class: 'nav-link' %>
         </li>
 
-        <li class='nav-item dropdown dropdown-slide'>
-          <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
-            <%= image_tag 'sample.jpg', class: 'rounded-circle mr15', width: '40', height: '40' %>
-          <% end %>
-          <div class='dropdown-menu dropdown-menu-end'>
-            <div class='dropdown-item'>らんてっく たろう</div>
-            <div class='dropdown-divider'></div>
-            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
-            <%= link_to 'ログアウト', '#', class: 'dropdown-item' %>
-          </div>
-        </li>
+        <% if logged_in? %>
+          <!-- ログインしている場合 -->
+          <li class='nav-item dropdown dropdown-slide'>
+            <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
+              <%= image_tag 'sample.jpg', class: 'rounded-circle mr15', width: '40', height: '40' %>
+            <% end %>
+            <div class='dropdown-menu dropdown-menu-end'>
+              <div class='dropdown-item'>らんてっく たろう</div>
+              <div class='dropdown-divider'></div>
+              <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
+              <!-- ログアウトリンク -->
+              <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
+            </div>
+          </li>
+        <% else %>
+          <!-- ログインしていない場合 -->
+          <li class='nav-item'>
+            <%= link_to 'ログイン', login_path, class: 'nav-link' %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </nav>
