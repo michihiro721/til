@@ -17,12 +17,8 @@
       <%= render 'shared/before_login_header' %>
     <% end %>
 
-    <% if flash[:notice] %>
-      <div class="alert alert-notice"><%= flash[:notice] %></div>
-    <% end %>
-
-    <% if flash[:alert] %>
-      <div class="alert alert-alert"><%= flash[:alert] %></div>
+    <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type %>"><%= message %></div>
     <% end %>
 
     <%= yield %>
