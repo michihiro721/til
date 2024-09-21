@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_to root_path, success: t('user_sessions.create.success')  # ここを root_path に変更
+      redirect_to boards_path, success: t('user_sessions.create.success')  # ログイン後 /boards にリダイレクト
     else
       flash.now[:danger] = t('user_sessions.create.failure')
       render :new, status: :unprocessable_entity
@@ -17,6 +17,6 @@ class UserSessionsController < ApplicationController
   def destroy
     logout
     flash[:success] = t('user_sessions.destroy.success') # ログアウト時のフラッシュメッセージを追加
-    redirect_to root_path, status: :see_other  # ここも root_path に変更
+    redirect_to root_path, status: :see_other  # ログアウト時は root_path へ
   end
 end
