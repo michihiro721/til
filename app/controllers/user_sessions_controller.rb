@@ -20,3 +20,5 @@ class UserSessionsController < ApplicationController
     redirect_to root_path, status: :see_other  # ここも root_path に変更
   end
 end
+
+
