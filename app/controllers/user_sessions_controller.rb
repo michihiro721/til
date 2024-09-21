@@ -16,9 +16,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    flash[:success] = t('user_sessions.destroy.success')  # ログアウト時のフラッシュメッセージを追加
+    flash[:success] = t('user_sessions.destroy.success') # ログアウト時のフラッシュメッセージを追加
     redirect_to root_path, status: :see_other  # ここも root_path に変更
   end
 end
-
-
