@@ -15,7 +15,7 @@ class BoardsController < ApplicationController
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Board.model_name.human)
       render :new, status: :unprocessable_entity
     end
-end
+  end
 
   private
 

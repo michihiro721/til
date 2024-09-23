@@ -1,9 +1,5 @@
 ja:
-  defaults:
-    flash_message:
-      created: "%{item}を作成しました"
-      not_created: "%{item}を作成出来ませんでした"
-      require_login: ログインしてください
+
   helpers:
 
     submit:
@@ -13,6 +9,11 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+  defaults:
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+      require_login: ログインしてください
   header:
     login: ログイン
     logout: ログアウト
